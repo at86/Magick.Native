@@ -16,14 +16,14 @@ clone()
   if [ -d "$folder" ]; then
     cd $folder
   else
-    git clone https://github.com/ImageMagick/$repo.git $folder
+    git clone https://github.com/at86/$repo.git $folder
     if [ $? != 0 ]; then
       echo "Error during checkout";
       exit;
     fi
 
     cd $folder
-    git remote add sshpush git@github.com:ImageMagick/$repo.git
+    git remote add sshpush git@github.com:at86/$repo.git
     git config remote.pushDefault sshpush
   fi
 
@@ -34,7 +34,8 @@ clone()
 
 clone_imagemagick()
 {
-  commit=$(<ImageMagick.commit)
+  #commit=$(<ImageMagick.commit)
+  commit="latest"
 
   clone ImageMagick
   cd ImageMagick
